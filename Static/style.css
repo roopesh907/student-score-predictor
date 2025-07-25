@@ -1,0 +1,230 @@
+body {
+  background-color: #212121;
+  font-size: 15pt;
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #000;
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+
+}
+/*background effect*/
+body {
+  background: linear-gradient(270deg, #0f0c29, #302b63, #24243e);
+  background-size: 600% 600%;
+  animation: bgMove 9s ease infinite;
+  font-size: 15pt;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+/* heading glow*/
+.heading {
+  text-shadow: 0 0 5px #1E42AB, 0 0 10px #1E3BAB, 0 0 20px #1E3BAB;
+}
+.heading {
+  position: relative;
+  background-color: #2D2E3C;
+  color: blanchedalmond;
+  text-align: center;
+  padding: 20px;
+  margin: 40px;
+  font-size: 26px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border-radius: 12px;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Neon animated border */
+.heading::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 15px;
+  padding: 6px; /* Thickness of the border */
+  background: linear-gradient(270deg, #39ff14, #00ffff, #ff00ff, #7f00ff, #39ff14);
+  background-size: 600% 600%;
+  animation: animateBorder 8s linear infinite;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+}
+
+/* Animation keyframes */
+@keyframes animateBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/*input*/
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  padding: 0 20px;
+}
+
+.input-block {
+  background-color: #2a2a2a;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px;
+  transition: transform 0.2s;
+}
+
+.input-block:hover {
+  transform: translateY(-3px);
+}
+
+.input-block label {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.input-block input[type="number"] {
+  width: 100%;
+  height: 40px;
+  font-size: 16px;
+  border: 2px solid #4A59FF;
+  border-radius: 6px;
+  padding: 5px 10px;
+  background-color: #1e1e1e;
+  color: white;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-block input[type="number"]:focus {
+  outline: none;
+  border-color:#39ff14 ;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+}
+.input-block {
+  background-color: #2a2a2a;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  opacity:0.7;
+  transition: transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0 0 12px #39ff14, 0 0 24px rgba(57, 255, 20, 0.4);
+}
+@keyframes neonGlow {
+  0% {
+    box-shadow: 0 0 10px #39ff14, 0 0 20px #00ffff;
+  }
+  50% {
+    box-shadow: 0 0 20px #ff00ff, 0 0 40px #7f00ff;
+  }
+  100% {
+    box-shadow: 0 0 10px #39ff14, 0 0 20px #00ffff;
+  }
+}
+
+.input-block {
+  animation: neonGlow 6s ease-in-out infinite;
+}
+.radio-group {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.radio-group label {
+  font-size: 14px;
+  margin-right: 10px;
+  transition: color 0.3s;
+}
+
+.radio-group label:hover {
+  color: #FFD700;
+  cursor: pointer;
+}
+
+.input-with-image {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 8px;
+}
+
+.icon,
+.input-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease-in-out;
+}
+
+.icon:hover,
+.input-image:hover {
+  transform: scale(1.05);
+}
+
+
+@media (max-width: 600px) {
+  .input-with-image {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .icon,
+  .input-image {
+    width: 50px;
+    height: 50px;
+  }
+
+
+  .radio-group {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+/*button*/
+button {
+  background: transparent;
+  color: #F5E6FF;
+  border: 2px solid #FFB24E;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #FF4E4E;
+  transition: 0.3s;
+}
+
+button:hover {
+  box-shadow: 0 0 10px #B026FF, 0 0 20px #FF6700;
+  transition: 0.3s ease;
+    }
