@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Score Predictor</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <div class="heading">Student Score Predictor</div>
+
+  <form action="/predict" method="post" class="input-container">
+
+    <div class="input-block">
+      <label for="hoursInput">Hours Studied:</label>
+      <div class="input-with-image">
+        <img src="{{ url_for('static', filename='pics/studying.jpg') }}" alt="Study" class="icon">
+        <input type="number" name="hours_studied" id="hoursInput" required placeholder="e.g. 5">
+      </div>
+    </div>
+
+    <div class="input-block">
+      <label for="sleepInput">Sleep Hours:</label>
+      <div class="input-with-image">
+        <img src="{{ url_for('static', filename='pics/sleeping.jpg') }}" alt="Sleep" class="icon">
+        <input type="number" name="sleep_hours" id="sleepInput" required placeholder="e.g. 7">
+      </div>
+    </div>
+
+    <div class="input-block">
+      <label>Distraction Level:</label>
+      <img src="{{ url_for('static', filename='pics/distracted.jpg') }}" alt="Distraction" class="input-image">
+      <div class="radio-group">
+        <label><input type="radio" name="distraction_level" value="1" required> Low</label>
+          <label><input type="radio" name="distraction_level" value="5"> Medium</label>
+             <label><input type="radio" name="distraction_level" value="10"> High</label>
+      </div>
+    </div>
+
+    <div class="input-block">
+      <label for="attendanceInput">Attendance (%):</label>
+      <div class="input-with-image">
+        <img src="{{ url_for('static', filename='pics/attendance.png') }}" alt="Attendance" class="icon">
+        <input type="number" name="attendance" id="attendanceInput" required placeholder="e.g. 90">
+      </div>
+    </div>
+
+    <div class="input-block">
+      <label for="pastScoreInput">Past Score:</label>
+      <div class="input-with-image">
+        <img src="{{ url_for('static', filename='pics/score.png') }}" alt="Past Score" class="icon">
+        <input type="number" name="past_score" id="pastScoreInput" required placeholder="e.g. 85">
+      </div>
+    </div>
+
+    <div class="submit-button-container">
+      <button type="submit">Predict Score</button>
+    </div>
+
+    {% if prediction_text %}
+      <div class="prediction">{{ prediction_text }}</div>
+    {% endif %}
+
+  </form>
+
+</body>
+</html>
